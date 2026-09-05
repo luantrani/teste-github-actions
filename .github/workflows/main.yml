@@ -20,7 +20,7 @@ jobs:
       - name: instalar python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-verseion}}
+          python-version: ${{ matrix.python-version}}
           cache:'pip'
 
       - name: instalar pytest
