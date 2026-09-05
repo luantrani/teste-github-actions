@@ -1,32 +1,31 @@
 name: Teste Matrix
 
-on: 
+on:
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
   qualidade:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
-   strategy:
-     matrix: 
-      os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
 
-   runs-on: ${{ matrix.os }}
+    steps:
+      - name: baixar codigo
+        uses: actions/checkout@v4
 
-   steps:
-     -name: baixar codigo
-      uses: actions/checkout@v4
-
-       -name: instalar pyton
+      - name: instalar python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-          -name: instalar pytest
-           run: pip install pytest
+      - name: instalar pytest
+        run: pip install pytest
 
-           -name: executar testes
-            run: pytest
+      - name: executar testes
+        run: pytest
         
         
