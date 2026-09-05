@@ -15,8 +15,8 @@ jobs:
    runs-on: ${{ matrix.os }}
 
    steps:
-      -name: baixar codigo
-       uses: actions/checkout@v4
+     -name: baixar codigo
+      uses: actions/checkout@v4
 
        -name: instalar pyton
         uses: actions/setup-python@v5
