@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  container1:
+    image: alpine:latest
+    container_name: container1
+    command: tail -f /dev/null
+    networks:
+      - rede-teste
+
+  container2:
+    image: alpine:latest
+    container_name: container2
+    command: tail -f /dev/null
+    networks:
+      - rede-teste
+
+networks:
+  rede-teste:
+    driver: bridge
